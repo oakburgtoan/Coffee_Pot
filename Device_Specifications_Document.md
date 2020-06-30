@@ -1,6 +1,13 @@
-# Coffee Pot Pre-Amp / Boost
+# Coffee Pot Device Specifications and User Manual
 
-## Device Specifications and User Manual
+Property            | Value
+:-------------      | :---------------------------------------------------
+_Document Revision_ | Rev1.0
+_Device Version_    | V1
+_Prepared by_       | Oakburg Toan Ltd.
+_Prepared for_      | Oakburg Toan Ltd.
+_Release Date_      | 06/24/2020
+_Address_           | 2692 Madison Rd, Suite N1 #381, Cincinnati, OH 45208
 
 --------------------------------------------------------------------------------
 
@@ -44,6 +51,10 @@ The Coffee Pot Pre-amp/Boost pedal is the perfect tool for brewing delicious toa
 
 ## Controls
 
+| ![image](Instruction_Front_Edge_flat_sm.gif "Front Edge View")
+| :------------------------------------------------------------:
+|           _Figure 1 : Control Labels; Front View_
+
 While the unit can be powered by a 9 volt battery it is not included. We recommend the use of a 9 volt negative tip power supply; 9 volt batteries tend to loose their nominal voltage rather quickly. After supplying power to the unit connect a 1/4" mono cable into the input which labeled on the back of the unit. This closes the "ground" in the circuit as well as providing an input signal. Now push the switch on the bottom of the front of the unit to toggle between "on/off". The pedal is indicated to be "on" when the led next to the switch lights up.
 
 This unit is equipped with five configurable items. On the front of the unit four knobs provide direct configuration over the input's volume, voicing (dark or bright), mid frequencies and output's gain. Inside the unit a two position dip switch provides bright caps selection.
@@ -55,10 +66,6 @@ The second knob, below the "grams" knob, sets the "grind" level to control the m
 On the third knob on the bottom left side is the "roast" knobs. Your toan, just like coffee, can be set from dark to light depending on your taste. This is a tilt EQ, a band-pass filter that can be centered from low frequencies to high frequencies depending on the knob position.
 
 The fourth knob is your "pour" knob. This controls the voltage gain of the output signal. Do you like a big cup or small cup?
-
-| ![image](Instruction_Front_Edge_flat.gif "Front Edge View")
-| :---------------------------------------------------------:
-|           _Figure 1 : Control Labels; Front View_
 
 ## Specifications
 
