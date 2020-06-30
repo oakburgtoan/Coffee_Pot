@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Device_Specifications_Document.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="coffee-pot-device-specifications-and-user-manual">Coffee Pot Device Specifications and User Manual</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><em>Document Revision</em></td>
+<td style="text-align:left">Rev1.0</td>
+</tr>
+<tr>
+<td style="text-align:left"><em>Device Version</em></td>
+<td style="text-align:left">V1</td>
+</tr>
+<tr>
+<td style="text-align:left"><em>Prepared by</em></td>
+<td style="text-align:left">Oakburg Toan Ltd.</td>
+</tr>
+<tr>
+<td style="text-align:left"><em>Prepared for</em></td>
+<td style="text-align:left">Oakburg Toan Ltd.</td>
+</tr>
+<tr>
+<td style="text-align:left"><em>Release Date</em></td>
+<td style="text-align:left">06/24/2020</td>
+</tr>
+<tr>
+<td style="text-align:left"><em>Address</em></td>
+<td style="text-align:left">2692 Madison Rd, Suite N1 #381, Cincinnati, OH 45208</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="table-of-content">Table of Content</h2>
+<!-- TOC -->
+<ul>
+<li>
+<p><a href="#table-of-content">Table of Content</a></p>
+</li>
+<li>
+<p><a href="#brief">Brief</a></p>
+</li>
+<li>
+<p><a href="#features">Features</a></p>
+</li>
+<li>
+<p><a href="#controls">Controls</a></p>
+</li>
+<li>
+<p><a href="#specifications">Specifications</a></p>
+<ul>
+<li><a href="#input">Input</a></li>
+<li><a href="#output">Output</a></li>
+<li><a href="#power">Power</a></li>
+<li><a href="#physical">Physical</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#architecture">Architecture</a></p>
+</li>
+<li>
+<p><a href="#safety-instructions">Safety Instructions</a></p>
+</li>
+<li>
+<p><a href="#warranty">Warranty</a></p>
+<ul>
+<li><a href="#terms-and-conditions">Terms and Conditions</a></li>
+<li><a href="#registration-process">Registration Process</a></li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+<h2 id="brief">Brief</h2>
+<p>The Coffee Pot Pre-amp/Boost pedal is the perfect tool for brewing delicious toans. Carefully assemble by clumsy hands. This essential on your daily ritual will wake up the senses and get the creative juices flowing.</p>
+<h2 id="features">Features</h2>
+<ul>
+<li>Standard 9v negative tip input.</li>
+<li>9v battery power connections and holder.</li>
+<li>Top edge audio and power connections.</li>
+<li>Bright boost switch with multiple frequency selection.</li>
+<li>True bypass.</li>
+</ul>
+<h2 id="controls">Controls</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><img src="Instruction_Front_Edge_flat_sm.gif" alt="image" title="Front Edge View"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><em>Figure 1 : Control Labels; Front View</em></td>
+</tr>
+</tbody>
+</table>
+<p>While the unit can be powered by a 9 volt battery it is not included. We recommend the use of a 9 volt negative tip power supply; 9 volt batteries tend to loose their nominal voltage rather quickly. After supplying power to the unit connect a 1/4&quot; mono cable into the input which labeled on the back of the unit. This closes the &quot;ground&quot; in the circuit as well as providing an input signal. Now push the switch on the bottom of the front of the unit to toggle between &quot;on/off&quot;. The pedal is indicated to be &quot;on&quot; when the led next to the switch lights up.</p>
+<p>This unit is equipped with five configurable items. On the front of the unit four knobs provide direct configuration over the input's volume, voicing (dark or bright), mid frequencies and output's gain. Inside the unit a two position dip switch provides bright caps selection.</p>
+<p>The knob on the top right corner is the &quot;grams&quot; knob. Just like you would control the grams of coffee grounds in your recipe this knob controls the input signal's volume.</p>
+<p>The second knob, below the &quot;grams&quot; knob, sets the &quot;grind&quot; level to control the mids. When you grind the coffee very fine it will get compress and provide more resistance to the water flow in your coffee pot. If the grind is coarser the water will flow more freely. When this knob is turned towards the &quot;fine&quot; end it will &quot;scoop&quot; the mids. When the knob is turned towards the &quot;coarse&quot; end it will boost the mids.</p>
+<p>On the third knob on the bottom left side is the &quot;roast&quot; knobs. Your toan, just like coffee, can be set from dark to light depending on your taste. This is a tilt EQ, a band-pass filter that can be centered from low frequencies to high frequencies depending on the knob position.</p>
+<p>The fourth knob is your &quot;pour&quot; knob. This controls the voltage gain of the output signal. Do you like a big cup or small cup?</p>
+<h2 id="specifications">Specifications</h2>
+<h3 id="input">Input</h3>
+<ul>
+<li>Connector 1/4&quot; Mono only</li>
+<li>Impedance</li>
+</ul>
+<h3 id="output">Output</h3>
+<ul>
+<li>Connector 1/4&quot; Mono</li>
+<li>Impedance</li>
+</ul>
+<h3 id="power">Power</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Parameter</th>
+<th style="text-align:center">Min</th>
+<th style="text-align:center">Typical</th>
+<th>Max</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Voltage</td>
+<td style="text-align:center">5VDC</td>
+<td style="text-align:center">9VDC</td>
+<td>12VDC</td>
+</tr>
+<tr>
+<td style="text-align:center">Current</td>
+<td style="text-align:center">3.22mA</td>
+<td style="text-align:center">4mA</td>
+<td>10mA</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Power Supply : Negative center 2.1 mm barrel jack (Boss style power supply). A 9 volt power supply is advised. Supplying more than the recommended 9 volt can result on device failures.</p>
+</blockquote>
+<h3 id="physical">Physical</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Parameter</th>
+<th style="text-align:center">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Dimensions</td>
+<td style="text-align:center">5x4x2 in.</td>
+</tr>
+<tr>
+<td style="text-align:center">Weight</td>
+<td style="text-align:center">~ 600 grams</td>
+</tr>
+</tbody>
+</table>
+<h2 id="architecture">Architecture</h2>
+<p>It combines a Fetzer Valve style input stage fed into a FET gain stage. Both of these stages use J202 FETs. These have a tiny bit more headroom than the J201. The first FET has two brightness enhancing capacitor. Connecting these on/off through the internal dip switch will determine the frequency were the treble boost is centered. Having them both off disables that higher frequency boost. The second FET is there to compensate for loss of loudness that comes for the passive tone control that follows. It also make the sound more compress, as in audio compression, not sustain compression.</p>
+<p>The gain stages are followed by the tone stack. The mids control can go from super scooped to a mid bump. Given that electric guitars are very mid focused instruments this control will have significant impact on the relative loudness perceived by the user. The second control in the tone stack is a 'tilt' EQ. This controls the filter's response from low-pass to all-pass to high-pass.</p>
+<p>Finally the signal goes to a none inverting op-amp, a OP07. This serves as an additional clean boost to increase the outputs gain if needed.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><img src="System_Diagram.jpg" alt="image" title="System Diagram"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><em>Figure 2 : System Diagram</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="safety-instructions">Safety Instructions</h2>
+<p>Do not use near water. Do not use near heat sources. Do not use a power other than a 9v DC negative tip power supply. For servicing and repairs contact us at support@oakburgtoan.com</p>
+<h2 id="warranty">Warranty</h2>
+<h3 id="terms-and-conditions">Terms and Conditions</h3>
+<p>The device is enclosure and graphic decal and/or details comes as is. Variations occur between each copy of the device due to the hand assembly process.</p>
+<p>The circuit is protected by a two year warranty from the day it was register. The product must be registered within 30 days of purchase. If the device experiences a malfunction contact us. An address will be provided for this process. Please do not send the product before contacting us as our address might change. If it is determined that the product is not fixable you will be provided with a new one. The fixed device or new example, which is the case, will be protected by warranty by the remaining time of the original registered product.</p>
+<h3 id="registration-process">Registration Process</h3>
+<p>Email support@oakburgtoan.com with the following</p>
+<ol>
+<li>Your Name</li>
+<li>Pedal Model</li>
+<li>Pedal Serial Number</li>
+<li>Address (street address if you like, if not at least the Country of residence and state or province or municipality).</li>
+<li>Proof of Purchase.</li>
+</ol>
+
+</body>
+</html>
